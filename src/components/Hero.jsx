@@ -25,9 +25,9 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Building digital <br className="hidden md:block" />
+              Build. Learn. <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">
-                experiences that matter.
+                 Improve. Repeat.
               </span>
             </motion.h1>
 
@@ -37,9 +37,9 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Hi, I'm Alex. A frontend developer specializing in React,
-              TypeScript, and crafting intuitive, accessible user interfaces. I
-              turn complex problems into elegant solutions.
+              Hi, I'm Ramitha. An aspiring AI/ML engineer and software developer 
+              passionate about building intelligent systems that solve real-world problems. 
+              I turn data into insights and ideas into working solutions.
             </motion.p>
 
             <motion.div
