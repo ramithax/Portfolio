@@ -28,7 +28,7 @@ export function Header() {
         <a
           href="#"
           className="text-xl font-bold tracking-tight text-gray-900 hover:text-brand-600 transition-colors">
-          Alex<span className="text-brand-600">.dev</span>
+          Ramitha<span className="text-brand-600">.X</span>
         </a>
 
         {/* Desktop Nav */}
