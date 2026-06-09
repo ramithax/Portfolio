@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 
 export function About() {
   const stats = [
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Projects Completed', value: '40+' },
-    { label: 'Happy Clients', value: '20+' }
+    { label: 'Years Experience', value: '3+' },
+    { label: 'Projects Completed', value: '5+' }
   ];
 
   return (
@@ -24,20 +23,20 @@ export function About() {
             </h2>
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
-                I started my journey as a developer back in 2018, tinkering with
-                HTML and CSS. Since then, I've had the privilege of building
-                software for start-ups, agencies, and large corporations.
+                I started my journey as a developer in 2023, Since then,
+                 I’ve been continuously building my skills through academic projects and hands-on 
+                 experience, including web applications and AI/ML-based systems.
               </p>
               <p>
-                My main focus these days is building accessible, inclusive
-                products and digital experiences for a variety of clients. I
-                enjoy bridging the gap between engineering and design —
-                combining my technical knowledge with my keen eye for design to
-                create a beautiful product.
+               My current focus is on AI/ML and software development, 
+               where I enjoy building intelligent, real-world solutions and full-stack applications. 
+               I’m passionate about combining machine learning with modern web technologies 
+               to create practical and impactful digital products.
               </p>
               <p>
-                When I'm not at the computer, I'm usually reading, hanging out
-                with my dog, or exploring new coffee shops around the city.
+               Outside of coding, I spend my time learning new technologies, 
+               working on personal projects, and exploring ideas that push me closer to 
+               becoming a skilled AI engineer and software developer.
               </p>
             </div>
           </motion.div>
@@ -65,7 +64,7 @@ export function About() {
 
             <div className="col-span-2 rounded-2xl overflow-hidden h-48 relative">
               <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                src="dist/assets/vehicle.png" 
                 alt="Developer workspace with laptop and code"
                 className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply"></div>

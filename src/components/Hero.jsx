@@ -84,15 +84,19 @@ export function Hero() {
           >
             <div className="relative group">
 
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-400 to-purple-400 blur-2xl opacity-30 group-hover:opacity-60 transition duration-300"></div>
-
-              {/* Image */}
-              <img
-                src="dist\assets\me.png" // 
-                alt="Profile"
-                className="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-full border-4 border-white shadow-2xl transform transition duration-300 group-hover:scale-105"
-              />
+            {/* Image ONLY (no circle, no border, no box) */}
+                <img
+                    src="dist/assets/me.png" 
+                    alt="Profile"
+                    className="
+                      relative 
+                       w-136 md:w-[920px]
+                      object-contain 
+                      drop-shadow-2xl 
+                      transition duration-300 
+                      group-hover:scale-105
+                    "
+                  />
 
             </div>
           </motion.div>
