@@ -61,38 +61,44 @@ export function Hero() {
                 Download Resume
               </a>
             </motion.div>
-                </div>
+          </div>
 
-                {/* RIGHT SIDE - ROBOT VIDEO */}
-                <motion.div
-                  className="flex justify-center md:justify-end"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.4
-                  }}
-                >
-                  <div className="relative group">
+          {/* RIGHT SIDE - ROBOT VIDEO */}
+          <motion.div
+              className="flex justify-center md:justify-end"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.4
+              }}
+            >
+              <div className="relative group">
 
-                    <video
-                      src="dist/assets/robot.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="
-                        w-[180px] md:w-[260px]
-                        object-contain
-                        mix-blend-multiply
-                        drop-shadow-xl
-                        transition duration-300
-                        group-hover:scale-105
-                      "
-                    />
+                <video
+                  src="dist/assets/robot3.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="
+                    w-[440px] md:w-[640px]
+                    object-contain
+                    drop-shadow-2xl
+                    transition duration-300
+                    group-hover:scale-105
+                  "
+                />
 
-                  </div>
-          </motion.div>
+              </div>
+
+              {/* Bottom shadow fade */}
+              <div className="
+                pointer-events-none
+                absolute bottom-0 left-0 w-[440px] md:w-[640px]
+                bg-gradient-to-t from-white via-white/70 to-transparent
+              "></div>
+            </motion.div>
 
         </div>
       </div>
