@@ -4,21 +4,18 @@ import { ArrowRight, Download } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
 
-      {/* Background decorative blobs */}
+      {/* Background blobs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
       <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
-        
-        {/* 🔥 GRID LAYOUT */}
         <div className="grid md:grid-cols-2 gap-10 items-center">
 
-          {/* LEFT SIDE - TEXT */}
+          {/* LEFT SIDE */}
           <div>
-
             <motion.h1
               className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -27,7 +24,7 @@ export function Hero() {
             >
               Build. Learn. <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">
-                 Improve. Repeat.
+                Improve. Repeat.
               </span>
             </motion.h1>
 
@@ -64,41 +61,37 @@ export function Hero() {
                 Download Resume
               </a>
             </motion.div>
+                </div>
 
-          </div>
+                {/* RIGHT SIDE - ROBOT VIDEO */}
+                <motion.div
+                  className="flex justify-center md:justify-end"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.4
+                  }}
+                >
+                  <div className="relative group">
 
-          {/* RIGHT SIDE - IMAGE */}
-          <motion.div
-            className="flex justify-center md:justify-end"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4,
-              y: {
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
-            }}
-          >
-            <div className="relative group">
+                    <video
+                      src="dist/assets/robot.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="
+                        w-[180px] md:w-[260px]
+                        object-contain
+                        mix-blend-multiply
+                        drop-shadow-xl
+                        transition duration-300
+                        group-hover:scale-105
+                      "
+                    />
 
-            {/* Image ONLY (no circle, no border, no box) */}
-                <img
-                    src="dist/assets/me.png" 
-                    alt="Profile"
-                    className="
-                      relative 
-                       w-136 md:w-[920px]
-                      object-contain 
-                      drop-shadow-2xl 
-                      transition duration-300 
-                      group-hover:scale-105
-                    "
-                  />
-
-            </div>
+                  </div>
           </motion.div>
 
         </div>
