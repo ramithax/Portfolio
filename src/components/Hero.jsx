@@ -82,7 +82,7 @@ export function Hero() {
                   muted
                   playsInline
                   className="
-                    w-[440px] md:w-[640px]
+                    w-[480px] md:w-[680px]
                     object-contain
                     drop-shadow-2xl
                     transition duration-300
