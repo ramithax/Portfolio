@@ -74,21 +74,20 @@ export function Hero() {
               delay: 0.4
             }}
           >
-            <div className="relative group">
+            <div className="relative">
 
+              {/* background glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 blur-3xl opacity-50 rounded-full"></div>
+
+              {/* video */}
               <video
                 src="/Portfolio/animation/robot.webm"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="
-                    w-[480px] md:w-[680px]
-                    object-contain
-                    drop-shadow-2xl
-                  "
+                className="relative z-10 w-[480px] md:w-[680px] object-contain"
               />
-
             </div>
 
             {/* Bottom shadow fade */}
