@@ -34,8 +34,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Hi, I'm Ramitha. An aspiring AI/ML engineer and software developer 
-              passionate about building intelligent systems that solve real-world problems. 
+              Hi, I'm Ramitha. An aspiring AI/ML engineer and software developer
+              passionate about building intelligent systems that solve real-world problems.
               I turn data into insights and ideas into working solutions.
             </motion.p>
 
@@ -65,40 +65,39 @@ export function Hero() {
 
           {/* RIGHT SIDE - ROBOT VIDEO */}
           <motion.div
-              className="flex justify-center md:justify-end"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.4
-              }}
-            >
-              <div className="relative group">
+            className="flex justify-center md:justify-end"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.4
+            }}
+          >
+            <div className="relative group">
 
-                <video
-                  src="dist/assets/robot.webm"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="
+              <video
+                src="dist/assets/robot.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="
                     w-[480px] md:w-[680px]
                     object-contain
                     drop-shadow-2xl
                     transition duration-300
-                    group-hover:scale-105
                   "
-                />
+              />
 
-              </div>
+            </div>
 
-              {/* Bottom shadow fade */}
-              <div className="
+            {/* Bottom shadow fade */}
+            <div className="
                 pointer-events-none
                 absolute bottom-0 left-0 w-[440px] md:w-[640px]
                 bg-gradient-to-t from-white via-white/70 to-transparent
               "></div>
-            </motion.div>
+          </motion.div>
 
         </div>
       </div>
