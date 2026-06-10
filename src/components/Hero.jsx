@@ -54,7 +54,8 @@ export function Hero() {
               </a>
 
               <a
-                href="#contact"
+                href="/resume.pdf"
+                download
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 border border-gray-200 font-medium rounded-full hover:bg-gray-50 hover:border-gray-300 transition-all"
               >
                 <Download size={18} />

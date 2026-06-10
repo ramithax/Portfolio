@@ -23,7 +23,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
-      
+
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
@@ -41,11 +41,6 @@ export function Header() {
               {link.name}
             </a>
           )}
-          <a
-            href="#contact"
-            className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors">
-            Hire Me
-          </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -69,12 +64,6 @@ export function Header() {
               {link.name}
             </a>
           )}
-          <a
-            href="#contact"
-            className="px-5 py-3 bg-gray-900 text-white text-center text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors mt-2"
-            onClick={() => setIsMobileMenuOpen(false)}>
-            Hire Me
-          </a>
         </div>
       }
     </header>
