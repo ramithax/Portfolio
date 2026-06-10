@@ -76,7 +76,7 @@ export function Hero() {
               <div className="relative group">
 
                 <video
-                  src="dist/assets/robot3.webm"
+                  src="dist/assets/robot.webm"
                   autoPlay
                   loop
                   muted
