@@ -4,10 +4,8 @@ import { Github, Twitter, Linkedin, Dribbble } from 'lucide-react';
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const socialLinks = [
-    { icon: <Github size={20} />, href: '#', label: 'GitHub' },
-    { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
-    { icon: <Dribbble size={20} />, href: '#', label: 'Dribbble' }
+    { icon: <Github size={20} />, href: 'https://github.com/ramithax', label: 'GitHub' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/ramitha-manilka-a91324396/', label: 'LinkedIn' },
   ];
 
   return (
@@ -17,10 +15,10 @@ export function Footer() {
           <a
             href="#"
             className="text-xl font-bold tracking-tight text-gray-900">
-            Alex<span className="text-brand-600">.dev</span>
+            Ramitha<span className="text-brand-600">.X</span>
           </a>
           <p className="text-sm text-gray-500">
-            © {currentYear} Alex Developer. All rights reserved.
+            © {currentYear} Ramitha.X. All rights reserved.
           </p>
         </div>
 

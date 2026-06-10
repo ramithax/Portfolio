@@ -62,7 +62,7 @@ export function Contact() {
     <section
       id="contact"
       className="py-24 bg-brand-950 text-white relative overflow-hidden">
-      
+
       {/* Decorative background */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10 pointer-events-none">
         <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-brand-400 blur-[120px]"></div>
@@ -76,7 +76,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}>
-            
+
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Let's work together.
             </h2>
@@ -98,7 +98,7 @@ export function Contact() {
                   <a
                     href="mailto:hello@alex.dev"
                     className="text-lg font-semibold hover:text-brand-300 transition-colors">
-                    hello@alex.dev
+                    ramithamanilka2003@gmail.com
                   </a>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export function Contact() {
                   <a
                     href="tel:+1234567890"
                     className="text-lg font-semibold hover:text-brand-300 transition-colors">
-                    +1 (234) 567-890
+                    0716668925
                   </a>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export function Contact() {
                   <div className="text-sm text-brand-200 font-medium mb-1">
                     Location
                   </div>
-                  <div className="text-lg font-semibold">San Francisco, CA</div>
+                  <div className="text-lg font-semibold">Kandy,Srilanka</div>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white rounded-2xl p-8 shadow-2xl text-gray-900">
-            
+
             <h3 className="text-2xl font-bold mb-6">Send me a message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -159,7 +159,7 @@ export function Contact() {
                   placeholder="John Doe"
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? 'name-error' : undefined} />
-                
+
                 {errors.name &&
                   <p id="name-error" className="mt-1 text-sm text-red-500">
                     {errors.name}
@@ -183,7 +183,7 @@ export function Contact() {
                   placeholder="john@example.com"
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? 'email-error' : undefined} />
-                
+
                 {errors.email &&
                   <p id="email-error" className="mt-1 text-sm text-red-500">
                     {errors.email}
@@ -207,7 +207,7 @@ export function Contact() {
                   placeholder="Tell me about your project..."
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? 'message-error' : undefined} />
-                
+
                 {errors.message &&
                   <p id="message-error" className="mt-1 text-sm text-red-500">
                     {errors.message}
@@ -219,7 +219,7 @@ export function Contact() {
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-all disabled:opacity-70 disabled:cursor-not-allowed">
-                
+
                 {isSubmitting ?
                   <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> :
                   <>
