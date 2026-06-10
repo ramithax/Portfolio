@@ -76,7 +76,7 @@ export function Hero() {
             <div className="relative group">
 
               <video
-                src="dist/assets/robot.webm"
+                src="Assets\animation\robot.webm"
                 autoPlay
                 loop
                 muted
@@ -85,7 +85,6 @@ export function Hero() {
                     w-[480px] md:w-[680px]
                     object-contain
                     drop-shadow-2xl
-                    transition duration-300
                   "
               />
 

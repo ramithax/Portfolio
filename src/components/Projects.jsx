@@ -4,12 +4,11 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory, secure checkout, and an intuitive admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    tags: ['React', 'Next.js', 'Tailwind', 'Stripe'],
-    liveUrl: '#',
-    githubUrl: '#'
+    title: 'VehicleIQ',
+    description: 'A full-stack vehicle valuation platform that helps users determine the market value of their cars using AI-powered image analysis and market data.',
+    image: 'Assets/project_images/vehicleIQ.png',
+    tags: ['Python', 'Flask', 'Tailwind', 'HTML', 'scikit-learn', 'Matplotlib', 'Seaborn'],
+    githubUrl: 'https://github.com/ramithax/Vehicle-IQ.git'
   },
   {
     title: 'Task Management App',
@@ -70,7 +69,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}>
-              
+
               <div className="relative h-64 overflow-hidden bg-gray-100">
                 <img
                   src={project.image}
@@ -98,13 +97,6 @@ export function Projects() {
                 </div>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-brand-600 transition-colors"
-                    aria-label={`View live site for ${project.title}`}>
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
                   <a
                     href={project.githubUrl}
                     className="flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
