@@ -6,28 +6,28 @@ const projects = [
   {
     title: 'Dr.Computer (currently working on it)',
     description: 'Dr.Computer is a full-stack e-commerce web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It is designed as a product-selling platform focused on computer-related items such as laptops, accessories, and hardware components with a fully functional admin pannel',
-    image: 'Assets/project_images/dr.computer.png',
+    image: 'Portfolio/project_images/dr.computer.png',
     tags: ['React', 'MongoDB', 'Tailwind', 'Node.js', 'ExpressJs', 'JWT', 'Firebase', 'Bcrypt'],
     githubUrl: 'https://github.com/ramithax/Dr.Computer-Frontend.git'
   },
   {
     title: 'VehicleIQ',
     description: 'Vehicle IQ is an intelligent web application built using Flask for the backend and Tailwind CSS for the frontend, designed specifically for selected Toyota vehicles. The system integrates a machine learning model based on Gradient Boosting (Gradient Boosting Regressor) to deliver accurate predictions and insights.',
-    image: 'Assets/project_images/vehicleIQ.png',
+    image: 'Portfolio/project_images/vehicleIQ.png',
     tags: ['Python', 'Flask', 'Tailwind', 'HTML', 'scikit-learn', 'Matplotlib', 'Seaborn'],
     githubUrl: 'https://github.com/ramithax/Vehicle-IQ.git'
   },
   {
     title: 'Flask Blog',
     description: 'Flask Blog is a simple and fully functional web application built using Flask for the backend and Bootstrap for the frontend. It is designed as a blogging platform where users can create and manage posts easily.Clean and responsive Bootstrap interface, the app provides a smooth user experience while demonstrating core web development concepts like routing, templates, and data handling in Flask.',
-    image: 'Assets/project_images/flask_blog.png',
+    image: 'Portfolio/project_images/flask_blog.png',
     tags: ['Flask', 'Bootstrap', 'HTML', 'CSS', 'Jinja2', 'sqlite'],
     githubUrl: 'https://github.com/ramithax/Flask-Blog.git'
   },
   {
     title: 'OpenAI chatbot',
     description: 'OpenAI Chatbot is an intelligent conversational AI application built using the OpenAI API, LangChain, and a Retrieval-Augmented Generation (RAG) architecture. The system enhances standard LLM responses by integrating a retrieval layer that fetches relevant information from external knowledge sources before generating answers. This allows the chatbot to provide more accurate, contextual, and domain-specific responses.',
-    image: 'Assets/project_images/openai.png',
+    image: 'Portfolio/project_images/openai.png',
     tags: ['openai api', 'langchain', 'python', 'GenAI', 'Chatbot', 'RAG', 'LLM'],
     githubUrl: 'https://github.com/ramithax/python-OpenAI_chatbot.git'
   }
