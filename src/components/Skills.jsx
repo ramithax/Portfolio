@@ -4,15 +4,23 @@ import { motion } from 'framer-motion';
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3/Sass', 'Python', 'GraphQL']
+    skills: ['JavaScript', 'Python', 'HTML5', 'CSS3', 'Java']
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'Framer Motion', 'Redux/Zustand', 'Node.js', 'Express']
+    skills: ['React', 'Express', 'Flask', 'Springboot', 'Vue.js', 'Tailwind CSS', 'Node.js']
+  },
+  {
+    title: 'Libraries',
+    skills: ['Pandas', 'scikit-learn', 'Matplotlib', 'Seaborn', 'numpy', 'Tensorflow', 'keras']
+  },
+  {
+    title: 'Databases',
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase']
   },
   {
     title: 'Tools & Platforms',
-    skills: ['Git/GitHub', 'Figma', 'Vercel', 'AWS', 'Docker', 'Jest', 'Cypress', 'Webpack/Vite']
+    skills: ['Git/GitHub', 'Vercel', 'Netlify', 'Render', 'Postman']
   }
 ];
 
@@ -47,7 +55,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-100">
                   {category.title}
                 </h3>
