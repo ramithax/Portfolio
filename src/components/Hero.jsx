@@ -6,10 +6,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
 
-      {/* Background blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -76,26 +73,20 @@ export function Hero() {
           >
             <div className="relative">
 
-              {/* background glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 blur-3xl opacity-50 rounded-full"></div>
+
 
               {/* video */}
               <video
-                src="/Portfolio/animation/robot.webm"
+                src="/Portfolio/animation/robot.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="relative z-10 w-[480px] md:w-[680px] object-contain"
+                className="relative z-10 w-[200px] md:w-[400px] object-contain"
               />
             </div>
 
-            {/* Bottom shadow fade */}
-            <div className="
-                pointer-events-none
-                absolute bottom-0 left-0 w-[440px] md:w-[640px]
-                bg-gradient-to-t from-white via-white/70 to-transparent
-              "></div>
+
           </motion.div>
 
         </div>
