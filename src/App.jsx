@@ -6,6 +6,7 @@ import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import TechStackSection from './components/TechStackSection';
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <About />
         <Projects />
         <Skills />
+        <TechStackSection />
         <Contact />
       </main>
       <Footer />

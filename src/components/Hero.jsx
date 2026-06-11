@@ -82,7 +82,7 @@ export function Hero() {
                 loop
                 muted
                 playsInline
-                className="relative z-10 w-[200px] md:w-[400px] object-contain"
+                className="relative z-10 w-[225px] md:w-[425px] object-contain"
               />
             </div>
 
