@@ -67,7 +67,7 @@ export function Projects() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}>
 
-              <div className="relative h-64 overflow-hidden bg-gray-100">
+              <div className="relative h-48 md:h-64 overflow-hidden bg-gray-100">
                 <img
                   src={project.image}
                   alt={`Screenshot of ${project.title}`}

@@ -21,51 +21,68 @@ export function Header() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    <header className="fixed top-3 inset-x-0 z-50">
 
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
-          className="text-xl font-bold tracking-tight text-gray-900 hover:text-brand-600 transition-colors">
-          Ramitha<span className="text-brand-600">.X</span>
-        </a>
+      {/* OUTER BORDER — thin, no fill */}
+      <div className="mx-auto w-[95%] max-w-6xl rounded-2xl border border-blue-400/40">
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) =>
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-              {link.name}
-            </a>
-          )}
-        </nav>
+        {/* INNER CONTAINER — fully transparent */}
+        <div
+          className={`flex items-center justify-between px-6 rounded-2xl transition-all duration-300
+    ${isScrolled
+              ? 'py-2 bg-white/20 backdrop-blur-md'
+              : 'py-3 bg-white/10 backdrop-blur-md'
+            }`}
+        >
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden p-2 text-gray-600 hover:text-gray-900"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu">
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Logo */}
+          <a
+            href="#"
+            className="text-xl font-bold tracking-tight text-black hover:text-blue-600 transition-colors"
+          >
+            Ramitha<span className="text-blue-600">.X</span>
+          </a>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-gray-900 hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile Button */}
+          <button
+            className="md:hidden p-2 text-gray-300 hover:text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Nav */}
-      {isMobileMenuOpen &&
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg py-4 px-6 flex flex-col gap-4">
-          {navLinks.map((link) =>
+      {/* MOBILE MENU */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden mx-auto w-[95%] max-w-6xl mt-2 border border-blue-400/40 rounded-2xl py-3 px-6 flex flex-col gap-3">
+          {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-base font-medium text-gray-600 hover:text-gray-900 py-2"
-              onClick={() => setIsMobileMenuOpen(false)}>
+              className="text-base font-medium text-gray-300 hover:text-white py-1"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               {link.name}
             </a>
-          )}
+          ))}
         </div>
-      }
+      )}
+
     </header>
   );
 }
