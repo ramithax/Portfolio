@@ -80,12 +80,6 @@ export function About() {
                     </div>
 
                     <div className="flex">
-                      <span className="text-blue-400 w-40">"age"</span>
-                      <span className="text-white">: </span>
-                      <span className="text-white">22</span>,
-                    </div>
-
-                    <div className="flex">
                       <span className="text-blue-400 w-40">"frameworks"</span>
                       <span className="text-white">: </span>
                       <span className="text-white">["MERN", "Flask", "Spring Boot"]</span>,
