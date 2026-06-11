@@ -6,8 +6,6 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
 
-
-
       <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-10 items-center">
 
@@ -61,32 +59,25 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT SIDE - ROBOT VIDEO */}
+          {/* RIGHT SIDE - ROBOT VIDEO (FIXED) */}
           <motion.div
             className="flex justify-center md:justify-end"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4
-            }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="relative">
+            <div className="relative w-[254px] md:w-[478px] overflow-hidden rounded-xl isolate transform-gpu">
 
-
-
-              {/* video */}
               <video
                 src="/Portfolio/animation/robot.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="relative z-10 w-[225px] md:w-[425px] object-contain"
+                className="w-full h-full object-cover block"
               />
+
             </div>
-
-
           </motion.div>
 
         </div>
