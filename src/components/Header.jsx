@@ -6,9 +6,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -17,64 +15,65 @@ export function Header() {
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <header className="fixed top-3 inset-x-0 z-50">
-
-      {/* OUTER BORDER — thin, no fill */}
-      <div className="mx-auto w-[95%] max-w-6xl rounded-2xl border border-blue-400/40">
-
-        {/* INNER CONTAINER — fully transparent */}
-        <div
-          className={`flex items-center justify-between px-6 rounded-2xl transition-all duration-300
-    ${isScrolled
-              ? 'py-2 bg-white/20 backdrop-blur-md'
-              : 'py-3 bg-white/10 backdrop-blur-md'
-            }`}
-        >
+    <header className="fixed top-0 inset-x-0 z-50">
+      <div
+        className={`transition-all duration-300 ${isScrolled
+          ? 'bg-white/80 backdrop-blur-md border-b border-[#e8eaed] shadow-sm'
+          : 'bg-transparent'
+          }`}
+      >
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
 
           {/* Logo */}
-          <a
-            href="#"
-            className="text-xl font-bold tracking-tight text-black hover:text-blue-600 transition-colors"
-          >
-            Ramitha<span className="text-blue-600">.X</span>
+          <a href="#" className="text-xl font-bold tracking-tight text-[#1f1f1f] hover:text-[#4285F4] transition-colors">
+            Ramitha<span style={{ color: '#4285F4' }}>.X</span>
           </a>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-900 hover:text-white transition-colors"
+                className="text-sm font-medium text-[#5f6368] hover:text-[#1f1f1f] transition-colors"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Button */}
+          {/* CTA — pill button matching Hero */}
+          <a
+            href="#contact"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium text-white transition-all hover:opacity-90"
+            style={{ background: '#1f1f1f' }}
+          >
+            Hire Me
+          </a>
+
+          {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-gray-300 hover:text-white"
+            className="md:hidden p-2 text-[#5f6368] hover:text-[#1f1f1f]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mx-auto w-[95%] max-w-6xl mt-2 border border-blue-400/40 rounded-2xl py-3 px-6 flex flex-col gap-3">
-          {navLinks.map((link) => (
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-[#e8eaed] px-6 py-4 flex flex-col gap-4">
+          {navLinks.map(link => (
             <a
               key={link.name}
               href={link.href}
-              className="text-base font-medium text-gray-300 hover:text-white py-1"
+              className="text-base font-medium text-[#5f6368] hover:text-[#4285F4] py-1 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
@@ -82,7 +81,6 @@ export function Header() {
           ))}
         </div>
       )}
-
     </header>
   );
 }

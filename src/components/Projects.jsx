@@ -1,110 +1,175 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
+
+// Google-brand tag colors cycling
+const TAG_COLORS = [
+  { bg: '#e8f0fe', text: '#1967d2' },
+  { bg: '#fce8e6', text: '#c5221f' },
+  { bg: '#fef7e0', text: '#b05e00' },
+  { bg: '#e6f4ea', text: '#137333' },
+  { bg: '#f3e8fd', text: '#7b2ea6' },
+];
 
 const projects = [
   {
-    title: 'Dr.Computer (currently working on it)',
-    description: 'Dr.Computer is a full-stack e-commerce web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It is designed as a product-selling platform focused on computer-related items such as laptops, accessories, and hardware components with a fully functional admin pannel',
+    title: 'Dr.Computer',
+    subtitle: 'Currently working on it',
+    description:
+      'A full-stack e-commerce web application built using the MERN stack, focused on computer-related items with a fully functional admin panel.',
     image: '/Portfolio/project_images/dr.computer.png',
-    tags: ['React', 'MongoDB', 'Tailwind', 'Node.js', 'ExpressJs', 'JWT', 'Firebase', 'Bcrypt'],
-    githubUrl: 'https://github.com/ramithax/Dr.Computer-Frontend.git'
+    tags: ['React', 'MongoDB', 'Node.js', 'ExpressJs', 'JWT', 'Firebase'],
+    githubUrl: 'https://github.com/ramithax/Dr.Computer-Frontend.git',
+    accent: '#4285F4',
   },
   {
     title: 'VehicleIQ',
-    description: 'Vehicle IQ is an intelligent web application built using Flask for the backend and Tailwind CSS for the frontend, designed specifically for selected Toyota vehicles. The system integrates a machine learning model based on Gradient Boosting (Gradient Boosting Regressor) to deliver accurate predictions and insights.',
+    subtitle: 'ML-powered vehicle insights',
+    description:
+      'Intelligent web application using Flask and a Gradient Boosting ML model for accurate vehicle price predictions and insights.',
     image: '/Portfolio/project_images/vehicleIQ.png',
-    tags: ['Python', 'Flask', 'Tailwind', 'HTML', 'scikit-learn', 'Matplotlib', 'Seaborn'],
-    githubUrl: 'https://github.com/ramithax/Vehicle-IQ.git'
+    tags: ['Python', 'Flask', 'scikit-learn', 'Matplotlib', 'Seaborn'],
+    githubUrl: 'https://github.com/ramithax/Vehicle-IQ.git',
+    accent: '#34A853',
   },
   {
     title: 'Flask Blog',
-    description: 'Flask Blog is a simple and fully functional web application built using Flask for the backend and Bootstrap for the frontend. It is designed as a blogging platform where users can create and manage posts easily.Clean and responsive Bootstrap interface, the app provides a smooth user experience while demonstrating core web development concepts like routing, templates, and data handling in Flask.',
+    subtitle: 'Full-featured blogging platform',
+    description:
+      'A simple and fully functional blogging platform with Flask backend and Bootstrap frontend, supporting post creation and management.',
     image: '/Portfolio/project_images/flask_blog.png',
-    tags: ['Flask', 'Bootstrap', 'HTML', 'CSS', 'Jinja2', 'sqlite'],
-    githubUrl: 'https://github.com/ramithax/Flask-Blog.git'
+    tags: ['Flask', 'Bootstrap', 'Jinja2', 'SQLite'],
+    githubUrl: 'https://github.com/ramithax/Flask-Blog.git',
+    accent: '#FBBC05',
   },
   {
-    title: 'OpenAI chatbot',
-    description: 'OpenAI Chatbot is an intelligent conversational AI application built using the OpenAI API, LangChain, and a Retrieval-Augmented Generation (RAG) architecture. The system enhances standard LLM responses by integrating a retrieval layer that fetches relevant information from external knowledge sources before generating answers. This allows the chatbot to provide more accurate, contextual, and domain-specific responses.',
+    title: 'OpenAI Chatbot',
+    subtitle: 'RAG-powered conversational AI',
+    description:
+      'Conversational AI using OpenAI API, LangChain, and RAG architecture to provide accurate, contextual, domain-specific responses.',
     image: '/Portfolio/project_images/openai.png',
-    tags: ['openai api', 'langchain', 'python', 'GenAI', 'Chatbot', 'RAG', 'LLM'],
-    githubUrl: 'https://github.com/ramithax/python-OpenAI_chatbot.git'
-  }
+    tags: ['OpenAI API', 'LangChain', 'Python', 'GenAI', 'RAG'],
+    githubUrl: 'https://github.com/ramithax/python-OpenAI_chatbot.git',
+    accent: '#A142F4',
+  },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 bg-gray-50">
+    <section id="projects" className="py-24" style={{ background: '#f0f4f9' }}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-16">
+
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <motion.p
+            className="text-xs font-semibold tracking-widest uppercase mb-3"
+            style={{ color: '#4285F4' }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
+            Portfolio
+          </motion.p>
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ color: '#1f1f1f' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}>
+            transition={{ duration: 0.5 }}
+          >
             Featured Projects
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 max-w-2xl"
+            className="text-base max-w-xl mx-auto"
+            style={{ color: '#5f6368' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}>
-            Here are some of the selected projects that showcase my passion for
-            building clean, scalable, and user-friendly applications.
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Selected projects that showcase my passion for building clean,
+            scalable, and user-friendly applications.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) =>
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
+              className="group bg-white rounded-2xl overflow-hidden border flex flex-col transition-all duration-300 hover:shadow-xl"
+              style={{ borderColor: '#e8eaed' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}>
-
-              <div className="relative h-48 md:h-64 overflow-hidden bg-gray-100">
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+            >
+              {/* Image */}
+              <div className="relative h-48 md:h-56 overflow-hidden bg-[#f8f9fa]">
                 <img
                   src={project.image}
                   alt={`Screenshot of ${project.title}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-900/10 transition-colors duration-300"></div>
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Accent top border */}
+                <div
+                  className="absolute top-0 left-0 w-full h-1"
+                  style={{ background: project.accent }}
+                />
               </div>
 
-              <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-6 flex-grow">
+              {/* Body */}
+              <div className="p-7 flex flex-col flex-grow">
+                <div className="mb-3">
+                  <h3
+                    className="text-xl font-bold mb-0.5 transition-colors"
+                    style={{ color: '#1f1f1f' }}
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="text-xs font-medium" style={{ color: project.accent }}>
+                    {project.subtitle}
+                  </p>
+                </div>
+
+                <p className="text-sm leading-relaxed flex-grow mb-5" style={{ color: '#5f6368' }}>
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tags.map((tag, tagIndex) =>
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-full">
-                      {tag}
-                    </span>
-                  )}
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag, ti) => {
+                    const c = TAG_COLORS[ti % TAG_COLORS.length];
+                    return (
+                      <span
+                        key={ti}
+                        className="px-3 py-1 rounded-full text-xs font-medium"
+                        style={{ background: c.bg, color: c.text }}
+                      >
+                        {tag}
+                      </span>
+                    );
+                  })}
                 </div>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+                {/* Footer */}
+                <div className="pt-4 border-t flex items-center gap-4" style={{ borderColor: '#e8eaed' }}>
                   <a
                     href={project.githubUrl}
-                    className="flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
-                    aria-label={`View source code for ${project.title}`}>
-                    <Github size={16} />
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:opacity-90"
+                    style={{ background: '#1f1f1f' }}
+                  >
+                    <Github size={14} />
                     Source Code
                   </a>
                 </div>
               </div>
             </motion.div>
-          )}
+          ))}
         </div>
       </div>
     </section>

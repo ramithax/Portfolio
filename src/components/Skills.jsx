@@ -1,76 +1,121 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const CATEGORY_COLORS = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#A142F4'];
+
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['JavaScript', 'Python', 'HTML5', 'CSS3', 'Java']
+    skills: ['JavaScript', 'Python', 'HTML5', 'CSS3', 'Java'],
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React', 'Express', 'Flask', 'Springboot', 'Vue.js', 'Tailwind CSS', 'Node.js']
+    skills: ['React', 'Express', 'Flask', 'Spring Boot', 'Vue.js', 'Tailwind CSS', 'Node.js'],
   },
   {
-    title: 'Libraries',
-    skills: ['Pandas', 'scikit-learn', 'Matplotlib', 'Seaborn', 'numpy', 'Tensorflow', 'keras']
+    title: 'ML / Data Science',
+    skills: ['Pandas', 'scikit-learn', 'Matplotlib', 'Seaborn', 'NumPy', 'TensorFlow', 'Keras'],
   },
   {
     title: 'Databases',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase']
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase'],
   },
   {
     title: 'Tools & Platforms',
-    skills: ['Git/GitHub', 'Vercel', 'Netlify', 'Render', 'Postman']
-  }
+    skills: ['Git / GitHub', 'Vercel', 'Netlify', 'Render', 'Postman'],
+  },
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 bg-white">
+    <section id="skills" className="py-24" style={{ background: '#ffffff' }}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <motion.div
-              className="sticky top-32"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Skills & Expertise
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                I've worked with a variety of technologies in the web
-                development world. Here's a snapshot of the tools I use on a
-                daily basis.
-              </p>
-            </motion.div>
-          </div>
 
-          <div className="md:col-span-8 space-y-12">
-            {skillCategories.map((category, index) =>
+        {/* Section header */}
+        <div className="mb-16 text-center">
+          <motion.p
+            className="text-xs font-semibold tracking-widest uppercase mb-3"
+            style={{ color: '#4285F4' }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
+            Expertise
+          </motion.p>
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ color: '#1f1f1f' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Skills & Technologies
+          </motion.h2>
+          <motion.p
+            className="text-base max-w-xl mx-auto"
+            style={{ color: '#5f6368' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            A snapshot of the tools and technologies I use to build intelligent,
+            modern, and scalable applications.
+          </motion.p>
+        </div>
+
+        {/* Skill category cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, index) => {
+            const accent = CATEGORY_COLORS[index % CATEGORY_COLORS.length];
+            return (
               <motion.div
                 key={index}
+                className="bg-[#f8f9fa] rounded-2xl p-6 border"
+                style={{ borderColor: '#e8eaed' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}>
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+              >
+                {/* Category label with colored dot */}
+                <div className="flex items-center gap-2 mb-5">
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: accent }} />
+                  <h3 className="text-base font-semibold" style={{ color: '#1f1f1f' }}>
+                    {category.title}
+                  </h3>
+                </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-100">
-                  {category.title}
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) =>
+                {/* Skill pills */}
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, si) => (
                     <span
-                      key={skillIndex}
-                      className="px-4 py-2 bg-gray-50 border border-gray-200 text-gray-800 font-medium rounded-lg hover:bg-brand-50 hover:border-brand-200 hover:text-brand-700 transition-colors cursor-default">
+                      key={si}
+                      className="px-3 py-1.5 bg-white border rounded-full text-sm font-medium transition-all cursor-default hover:border-current"
+                      style={{
+                        borderColor: '#e8eaed',
+                        color: '#5f6368',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.borderColor = accent;
+                        e.currentTarget.style.color = accent;
+                        e.currentTarget.style.background = accent + '10';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.borderColor = '#e8eaed';
+                        e.currentTarget.style.color = '#5f6368';
+                        e.currentTarget.style.background = '#ffffff';
+                      }}
+                    >
                       {skill}
                     </span>
-                  )}
+                  ))}
                 </div>
               </motion.div>
-            )}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

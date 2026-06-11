@@ -10,10 +10,12 @@ import TechStackSection from './components/TechStackSection';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-white selection:bg-brand-200 selection:text-brand-900">
+    <div className="min-h-screen" style={{ background: '#f0f4f9' }}>
       <Header />
       <main>
+        {/* Antigravity effect only on Hero */}
         <Hero />
+        {/* All other sections: white / #f0f4f9 alternating, no particle effects */}
         <About />
         <Projects />
         <Skills />
