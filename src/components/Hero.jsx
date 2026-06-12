@@ -88,7 +88,7 @@ export function Hero() {
           </a>
 
           <a
-            href="/resume.pdf"
+            href="/Portfolio/resume.pdf"
             download
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-gray-700 border border-gray-200 hover:border-gray-300 hover:bg-white/70 transition-all"
             style={{ background: 'rgba(255,255,255,0.5)', minWidth: '180px', justifyContent: 'center' }}
