@@ -36,8 +36,9 @@ const AntigravityInner = ({
     const dummy = useMemo(() => new THREE.Object3D(), []);
 
     const lastMousePos = useRef({ x: 0, y: 0 });
-    const lastMouseMoveTime = useRef(0);
+    const lastMouseMoveTime = useRef(Date.now());
     const virtualMouse = useRef({ x: 0, y: 0 });
+    const idleFactorRef = useRef(0);
 
     // Assign colors directly into a Float32Array for declarative instancedBufferAttribute
     const colorArray = useMemo(() => {
@@ -105,10 +106,15 @@ const AntigravityInner = ({
         let destX = (m.x * v.width) / 2;
         let destY = (m.y * v.height) / 2;
 
-        if (autoAnimate && Date.now() - lastMouseMoveTime.current > 2000) {
+        const autoAnimating = autoAnimate && Date.now() - lastMouseMoveTime.current > 2000;
+        if (autoAnimating) {
             destX = Math.sin(time * 0.4) * (v.width / 4);
             destY = Math.cos(time * 0.7) * (v.height / 4);
         }
+
+        const isIdle = Date.now() - lastMouseMoveTime.current > 1500 && !autoAnimating;
+        idleFactorRef.current += ((isIdle ? 1 : 0) - idleFactorRef.current) * 0.05;
+        const idle = idleFactorRef.current;
 
         virtualMouse.current.x += (destX - virtualMouse.current.x) * 0.04;
         virtualMouse.current.y += (destY - virtualMouse.current.y) * 0.04;
@@ -132,20 +138,47 @@ const AntigravityInner = ({
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             // Ambient gentle drift for all particles (not just ring)
-            const ambientX = mx + Math.sin(time * driftSpeed + driftPhase) * driftRadius;
-            const ambientY = my + Math.cos(time * driftSpeed * 1.3 + driftPhase) * driftRadius;
+            const currentDriftRadius = driftRadius * (1 - idle);
+            const currentDriftSpeed = driftSpeed * (1 - idle);
+            const ambientX = mx + Math.sin(time * currentDriftSpeed + driftPhase) * currentDriftRadius;
+            const ambientY = my + Math.cos(time * currentDriftSpeed * 1.3 + driftPhase) * currentDriftRadius;
 
             let targetPos = { x: ambientX, y: ambientY, z: mz * depthFactor };
 
             if (dist < magnetRadius) {
                 const angle = Math.atan2(dy, dx) + globalRotation;
-                const wave = Math.sin(t * waveSpeed + angle) * (0.5 * waveAmplitude);
-                const deviation = randomRadiusOffset * (5 / (fieldStrength + 0.1));
-                const currentRingRadius = ringRadius + wave + deviation;
 
-                targetPos.x = projectedTargetX + currentRingRadius * Math.cos(angle);
-                targetPos.y = projectedTargetY + currentRingRadius * Math.sin(angle);
-                targetPos.z = mz * depthFactor + Math.sin(t) * waveAmplitude * depthFactor;
+                // ACTIVE STATE: Ring
+                const activeWave = Math.sin(t * waveSpeed + angle) * (0.5 * waveAmplitude);
+                const deviation = randomRadiusOffset * (5 / (fieldStrength + 0.1));
+                const currentRingRadius = ringRadius + activeWave + deviation;
+
+                const activeX = projectedTargetX + currentRingRadius * Math.cos(angle);
+                const activeY = projectedTargetY + currentRingRadius * Math.sin(angle);
+                const activeZ = mz * depthFactor + Math.sin(t) * waveAmplitude * depthFactor;
+
+                // IDLE STATE: Soft Capsule Field
+                const normalizedDist = Math.min(dist / magnetRadius, 1);
+                // Push particles towards the boundary to make a dense edge, but filled center
+                const distribution = Math.pow(normalizedDist, 0.6);
+
+                const capsuleWidth = magnetRadius * 0.55;
+                const capsuleHeight = magnetRadius * 0.85;
+
+                const baseX = projectedTargetX + Math.cos(angle) * distribution * capsuleWidth;
+                const baseY = projectedTargetY + Math.sin(angle) * distribution * capsuleHeight;
+
+                // Fluid ripple traveling along the capsule surface (moving vertically)
+                const relativeY = baseY - projectedTargetY;
+                const ripple = Math.sin(t * waveSpeed * 1.5 - relativeY * 0.5) * waveAmplitude * 0.5;
+
+                const idleX = baseX + Math.cos(angle) * ripple;
+                const idleY = baseY + Math.sin(angle) * ripple;
+                const idleZ = (mz * 0.3) * depthFactor + ripple * 1.5;
+
+                targetPos.x = activeX * (1 - idle) + idleX * idle;
+                targetPos.y = activeY * (1 - idle) + idleY * idle;
+                targetPos.z = activeZ * (1 - idle) + idleZ * idle;
             }
 
             // Spring physics: accumulate velocity, apply damping
@@ -164,9 +197,12 @@ const AntigravityInner = ({
             dummy.lookAt(projectedTargetX, projectedTargetY, particle.cz);
             dummy.rotateX(Math.PI / 2);
 
-            // All particles stay visible — not gated to ring proximity
+            // Visibility and Scale Logic
+            const isOutside = dist >= magnetRadius;
+            const visibilityFactor = isOutside ? (1 - idle) : 1;
+
             const baseScale = 0.65 + Math.sin(t * pulseSpeed + driftPhase) * 0.2 * particleVariance;
-            const finalScale = Math.max(0.1, baseScale) * particleSize;
+            const finalScale = Math.max(0.001, baseScale * visibilityFactor) * particleSize;
             dummy.scale.set(finalScale, finalScale, finalScale);
 
             dummy.updateMatrix();
@@ -178,7 +214,7 @@ const AntigravityInner = ({
 
     return (
         <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
-            {particleShape === 'capsule' && <capsuleGeometry args={[0.08, 0.35, 4, 8]} />}
+            {particleShape === 'capsule' && <capsuleGeometry args={[0.08, 0.5, 4, 8]} />}
             {particleShape === 'sphere' && <sphereGeometry args={[0.15, 16, 16]} />}
             {particleShape === 'box' && <boxGeometry args={[0.25, 0.25, 0.25]} />}
             {particleShape === 'tetrahedron' && <tetrahedronGeometry args={[0.25]} />}

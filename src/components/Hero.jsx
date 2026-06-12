@@ -13,7 +13,7 @@ export function Hero() {
         <Antigravity
           count={400}
           magnetRadius={18}
-          ringRadius={14}
+          ringRadius={10}
           waveSpeed={0.1}
           waveAmplitude={0.8}
           particleSize={0.85}
