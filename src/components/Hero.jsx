@@ -30,7 +30,7 @@ export function Hero() {
       </div>
 
       {/* Content — centered like the real Antigravity site */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto pointer-events-none">
 
         {/* Small label */}
         <motion.p
@@ -73,7 +73,7 @@ export function Hero() {
 
         {/* CTA buttons — pill shaped like the real site */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 items-center"
+          className="flex flex-col sm:flex-row gap-4 items-center pointer-events-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
