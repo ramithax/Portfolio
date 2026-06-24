@@ -13,6 +13,16 @@ const TAG_COLORS = [
 
 const projects = [
   {
+    title: 'Job Tracker',
+    subtitle: 'Job Application Tracker',
+    description:
+      'Job Tracker: A Next.js application that helps you track your job applications, automate follow-ups, and manage your job search pipeline.',
+    image: '/Portfolio/project_images/jobtracker.png',
+    tags: ['Next.js', 'Typescript', 'MongoDB', 'Node.js', 'Better-auth', 'Shadcn UI', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/ramithax/job-application-tracker.git',
+    accent: '#4285F4',
+  },
+  {
     title: 'Dr.Computer',
     subtitle: 'Currently working on it',
     description:

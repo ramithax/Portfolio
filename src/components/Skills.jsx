@@ -6,11 +6,11 @@ const CATEGORY_COLORS = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#A142F4'];
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['JavaScript', 'Python', 'HTML5', 'CSS3', 'Java'],
+    skills: ['JavaScript', 'TypeScript', 'Python', 'HTML5', 'CSS3', 'Java'],
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React', 'Express', 'Flask', 'Spring Boot', 'Vue.js', 'Tailwind CSS', 'Node.js'],
+    skills: ['React', 'Next.js', 'Express', 'Flask', 'Spring Boot', 'Vue.js', 'Tailwind CSS', 'Node.js'],
   },
   {
     title: 'ML / Data Science',

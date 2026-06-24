@@ -103,7 +103,7 @@ export function About() {
                     { key: '"about"', val: '"3rd year undergraduate student"' },
                     { key: '"studying_at"', val: '"SLIIT Kandy"' },
                     { key: '"specialization"', val: '"Artificial Intelligence"' },
-                    { key: '"frameworks"', val: '["MERN", "Flask", "Spring Boot"]' },
+                    { key: '"frameworks"', val: '["NextJs","MERN", "Flask", "Spring Boot"]' },
                     { key: '"libraries"', val: '["React", "TensorFlow", "Keras"]' },
                     { key: '"interests"', val: '["AI Systems", "Full Stack"]' },
                   ].map(({ key, val }, i, arr) => (
