@@ -13,18 +13,18 @@ const TAG_COLORS = [
 
 const projects = [
   {
-    title: 'Job Tracker',
-    subtitle: 'Job Application Tracker',
+    title: 'Clothique',
+    subtitle: 'A clothing website',
     description:
-      'Job Tracker: A Next.js application that helps you track your job applications, automate follow-ups, and manage your job search pipeline.',
-    image: '/Portfolio/project_images/jobtracker.png',
-    tags: ['Next.js', 'Typescript', 'MongoDB', 'Node.js', 'Better-auth', 'Shadcn UI', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/ramithax/job-application-tracker.git',
+      'Clothique: A Next.js application that helps you buy clothes online.',
+    image: '/Portfolio/project_images/clothique.png',
+    tags: ['Next.js', 'Typescript', 'PostgreSQL', 'Node.js', 'Better-auth', 'Zustand', 'Neon', 'Radix UI', 'Shadcn UI', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/ramithax/clothique.git',
     accent: '#4285F4',
   },
   {
     title: 'Dr.Computer',
-    subtitle: 'Currently working on it',
+    subtitle: 'An e-commerce website',
     description:
       'A full-stack e-commerce web application built using the MERN stack, focused on computer-related items with a fully functional admin panel.',
     image: '/Portfolio/project_images/dr.computer.png',
