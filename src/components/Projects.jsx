@@ -52,16 +52,6 @@ const projects = [
     githubUrl: 'https://github.com/ramithax/Flask-Blog.git',
     accent: '#FBBC05',
   },
-  {
-    title: 'OpenAI Chatbot',
-    subtitle: 'RAG-powered conversational AI',
-    description:
-      'Conversational AI using OpenAI API, LangChain, and RAG architecture to provide accurate, contextual, domain-specific responses.',
-    image: '/Portfolio/project_images/openai.png',
-    tags: ['OpenAI API', 'LangChain', 'Python', 'GenAI', 'RAG'],
-    githubUrl: 'https://github.com/ramithax/python-OpenAI_chatbot.git',
-    accent: '#A142F4',
-  },
 ];
 
 export function Projects() {
